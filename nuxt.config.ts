@@ -13,6 +13,12 @@ export default defineNuxtConfig({
     layoutTransition: { name: 'layout', mode: 'out-in' },
   },
 
+  runtimeConfig: {
+    public: {
+      enableI18n: process.env.ENABLE_I18N
+    }
+  },
+
   sitemap: {
     strictNuxtContentPaths: true,
   },
@@ -55,6 +61,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxtjs/tailwindcss',
     '@stefanobartoletti/nuxt-social-share',
+    '@nuxtjs/i18n',
   ],
 
   content: {
@@ -62,4 +69,39 @@ export default defineNuxtConfig({
       theme: 'dracula',
     },
   },
+
+  i18n: {
+    lazy: true,
+    langDir: "locales",
+    strategy: "prefix",
+    defaultLocale: 'en',
+    locales: [
+      {
+        code: "en",
+        iso: "en-US",
+        name: "English",
+        file: "en-US.json"
+      },
+      {
+        code: "zh",
+        iso: "zh-CN",
+        name: "普通话",
+        file: "zh_CN.json"
+      },
+      {
+        code: "de",
+        iso: "de-DE",
+        name: "Deutsch",
+        file: "de_DE.json"
+      },
+      {
+        code: "bn",
+        iso: "bn-BD",
+        name: "বাংলা",
+        file: "bn-BD.json"
+      }
+
+    ],
+  },
+  
 })

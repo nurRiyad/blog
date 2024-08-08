@@ -5,10 +5,10 @@ import { footerData } from '~/data'
 <template>
   <div>
     <p class="text-black dark:text-zinc-300   text-2xl py-1 font-semibold">
-      {{ footerData.author }}
+      {{ $t('footerData.author') }}
     </p>
     <p class="py-2 dark:text-zinc-300  ">
-      {{ footerData.aboutAuthor }}
+      {{ $t('footerData.aboutAuthor') }}
     </p>
     <div class="my-3 space-x-3 pb-3">
       <NuxtLink

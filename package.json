@@ -16,6 +16,7 @@
     "@nuxt/image": "^1.7.0",
     "@nuxtjs/color-mode": "^3.3.2",
     "@nuxtjs/fontaine": "^0.4.1",
+    "@nuxtjs/i18n": "^8.3.1",
     "@nuxtjs/robots": "^3.0.0",
     "@nuxtjs/sitemap": "^5.3.2",
     "@nuxtjs/tailwindcss": "^6.11.4",

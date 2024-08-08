@@ -1,0 +1,39 @@
+{
+    "blogs": "Blogs",
+    "categories": "Kategorien",
+    "about": "Über",
+    "recent": "Aktuell",
+    "trending": "Trendig",
+    "connect": "Verbinden",
+    "mail": "Mail",
+    "quick": "Schnell",
+    "site": "Website",
+    "home": "Startseite",
+    "rights": "© 2020-2024 Keine Rechte vorbehalten. Wen interessiert's 🤷‍♂️? Es",
+    "navbarData": {
+      "homeTitle": "Riyads Blog"
+    },
+    "footerData": {
+      "author": "Al Asad Nur Riyad",
+      "aboutAuthor": "Hallo! Ich bin Riyad, ein Technik-Enthusiast, Problemlöser und Software-Ingenieur. Derzeit arbeite ich bei Appscode Inc.",
+      "authorInterest": "Ich habe gute Kenntnisse in Javascript, Typescript, VueJs und Nuxt. Wenn Sie eine interessante Idee haben, egal ob Open Source oder kommerziell, lassen Sie uns in Kontakt treten.",
+      "aboutTheSite": "Dies ist eine persönliche Blog-Website, erstellt mit Nuxt3, TailwindCSS, NuxtContent und Nuxt Icon. Derzeit wird sie auf Vercel gehostet."
+    },
+    "homePage": {
+      "title": "Willkommen auf meinem Blog",
+      "description": "Erhalten Sie Webentwicklung, Javascript, Typescript, NodeJs, Vue und Nuxt, sowie zugehörige Artikel, Tipps, Lernressourcen und mehr."
+    },
+    "blogsPage": {
+      "title": "Alle Blogs",
+      "description": "Hier finden Sie alle Blog-Beiträge, die ich auf dieser Website geschrieben und veröffentlicht habe."
+    },
+    "categoryPage": {
+      "title": "Kategorien",
+      "description": "Diese Kategorie wird basierend auf allen in den verschiedenen Blog-Beiträgen erwähnten Tags generiert."
+    },
+    "aboutPage": {
+        "title": "Al Asad Nur Riyad",
+        "description": "Software-Ingenieur, Problemlöser, Web-Enthusiast.",
+        "aboutMe": "Hallo, Mensch! Ich bin ein Software-Zauberer, der die meiste Zeit damit verbringt, Code-Zauber im Bytebuilders-Team bei Appscode zu wirken. Wenn ich nicht gerade Code schreibe, findet man mich dabei, Lösungen für Probleme auf Online-Richtern zu beschwören. Fragen Sie mich nicht nach Liebeszaubern, meine Magie funktioniert nur bei Maschinen!"
+    }
+}

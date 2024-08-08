@@ -1,8 +1,17 @@
 <script setup lang="ts">
-const { path } = useRoute()
-const articles = await queryContent(path).findOne()
+import type { TocLink } from '@nuxt/content';
 
-const links = articles?.body?.toc?.links || []
+interface Props {
+  links: TocLink[]
+}
+
+const props= withDefaults(defineProps<Props>(), {
+
+  links: () => [],
+
+})
+
+const links = props.links || []
 </script>
 
 <template>

@@ -60,7 +60,9 @@ https://blog.nurriyad.xyz
 yarn install
 
 # serve in dev mode, with hot reload at localhost:5173
-yarn run dev
+ENABLE_I18N=true npm run dev # with multilanguage support 
+
+ENABLE_I18N=false npm run dev # without multilanguage support 
 
 # build for production
 yarn run build
@@ -69,3 +71,4 @@ yarn run build
 yarn run  preview
 
 ```
+### Note: For Production You Must Set an Enviroment variable named `ENABLE_I18N` true or false for multilanguage settings

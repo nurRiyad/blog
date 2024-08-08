@@ -2,12 +2,33 @@
 import type { BlogPost } from '@/types/blog'
 import { navbarData, seoData } from '~/data'
 
+
+const localPath = useLocalePath()
 const { path } = useRoute()
+
 
 const { data: articles, error } = await useAsyncData(`blog-post-${path}`, () => queryContent(path).findOne())
 
-if (error.value)
-  navigateTo('/404')
+if (error.value)   
+ {
+  // Check if path doesn't include '/en' and there are no articles
+  if (!path.includes('/en') && !articles.value) {
+    const newPath = path.slice(0, 1) + 'en/' + path.slice(4);
+
+
+
+    const { data: englishArticles, error: englishError } = await useAsyncData(`blog-post-${newPath}`, () => queryContent(newPath).findOne())
+    
+
+    if (englishArticles.value && !englishError.value) {
+      articles.value = englishArticles.value;
+    } else {
+      navigateTo(localPath(`/404`));
+    }
+  } else {
+    navigateTo(localPath(`/404`));
+  }
+}
 
 const data = computed<BlogPost>(() => {
   return {
@@ -109,7 +130,7 @@ defineOgImageComponent('Test', {
         </ContentRenderer>
       </div>
     </div>
-    <BlogToc />
+    <BlogToc  :links="articles?.body?.toc?.links"/>
 
     <div class="flex flex-row  flex-wrap md:flex-nowrap mt-10 gap-2">
       <SocialShare

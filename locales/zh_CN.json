@@ -1,0 +1,39 @@
+{
+    "blogs": "博客",
+    "categories": "分类",
+    "about": "关于",
+    "recent": "最近",
+    "trending": "热门",
+    "connect": "联系",
+    "mail": "邮件",
+    "quick": "快速",
+    "site": "网站",
+    "home": "首页",
+    "rights": "© 2020-2024 无版权保留。 谁在乎 🤷‍♂️？ 它",
+    "navbarData": {
+      "homeTitle": "Riyad 的博客"
+    },
+    "footerData": {
+      "author": "Al Asad Nur Riyad",
+      "aboutAuthor": "嗨！我是 Riyad，一个技术爱好者、问题解决者和软件工程师。目前在 Appscode Inc. 工作。",
+      "authorInterest": "我对 Javascript、Typescript、VueJs 和 Nuxt 有相当多的了解。如果您有一个有趣的想法，无论是开源还是付费，让我们联系吧。",
+      "aboutTheSite": "这是一个用 Nuxt3、TailwindCSS、NuxtContent、Nuxt Icon 构建的个人博客网站。目前部署在 Vercel 上。"
+    },
+    "homePage": {
+      "title": "欢迎来到我的博客网站",
+      "description": "获取 Web 开发、Javascript、Typescript、NodeJs、Vue 和 Nuxt 相关的文章、技巧、学习资源等。"
+    },
+    "blogsPage": {
+      "title": "所有博客",
+      "description": "在这里，您将找到我在这个网站上撰写和发布的所有博客文章。"
+    },
+    "categoryPage": {
+      "title": "分类",
+      "description": "下面这个分类是根据不同博客文章中提到的所有标签生成的。"
+    },
+    "aboutPage": {
+        "title": "Al Asad Nur Riyad",
+        "description": "软件工程师，问题解决者，网络爱好者。",
+        "aboutMe": "你好，人类！ 我是一个软件巫师，大部分时间都在 Appscode 的 Bytebuilders 团队编写代码咒语。 当我不编写代码时，你会发现我正在在线法官上召唤问题的解决方案。 不要问我任何爱情咒语，我的魔法只对机器有效！"
+    }
+}

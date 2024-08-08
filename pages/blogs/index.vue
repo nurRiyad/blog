@@ -1,25 +1,73 @@
 <script lang="ts" setup>
-const { data } = await useAsyncData('home', () => queryContent('/blogs').sort({ _id: -1 }).find())
+import { useI18n } from 'vue-i18n';
+
+const { locale } = useI18n();
+
+const { data: currentLocaleData } = await useAsyncData('currentLocale', () => 
+  queryContent(`${locale.value}/blogs`).sort({ _id: -1 }).find()
+);
 
 const elementPerPage = ref(5)
 const pageNumber = ref(1)
 const searchTest = ref('')
 
+// Fetch English blogs if the current locale is not English
+const { data: enData } = await useAsyncData('enLocale', () => 
+  locale.value !== 'en' ? queryContent('en/blogs').sort({ _id: -1 }).find() : Promise.resolve([])
+);
+
 const formattedData = computed(() => {
-  return data.value?.map((articles) => {
-    return {
-      path: articles._path,
-      title: articles.title || 'no-title available',
-      description: articles.description || 'no-description available',
-      image: articles.image || '/not-found.jpg',
-      alt: articles.alt || 'no alter data available',
-      ogImage: articles.ogImage || '/not-found.jpg',
-      date: articles.date || 'not-date-available',
-      tags: articles.tags || [],
-      published: articles.published || false,
+  const currentLocaleBlogs = currentLocaleData.value?.map((article) => ({
+    path: article._path,
+    fileName: article._file,
+    title: article.title || 'no-title available',
+    description: article.description || 'no-description available',
+    image: article.image || '/not-found.jpg',
+    alt: article.alt || 'no alter data available',
+    ogImage: article.ogImage || '/not-found.jpg',
+    date: article.date || 'not-date-available',
+    tags: article.tags || [],
+    published: article.published || false,
+    locale: locale.value
+  })) || [];
+
+  const enBlogs = enData.value?.map((article) => ({
+    path: article._path,
+    fileName: article._file,
+    title: article.title || 'no-title available',
+    description: article.description || 'no-description available',
+    image: article.image || '/not-found.jpg',
+    alt: article.alt || 'no alter data available',
+    ogImage: article.ogImage || '/not-found.jpg',
+    date: article.date || 'not-date-available',
+    tags: article.tags || [],
+    published: article.published || false,
+    locale: 'en'
+  })) || [];
+
+  // Combine blogs, preferring the current locale version
+  const blogMap = new Map();
+
+  currentLocaleBlogs.forEach(blog => {
+    const fileName = blog.fileName?.replace(`${locale.value}/blogs/`, '');
+    blogMap.set(fileName, blog);
+  });
+
+  enBlogs.forEach(enBlog => {
+    const fileName = enBlog.fileName?.replace('en/blogs/', '');
+    const currentLocaleBlog = blogMap.get(fileName);
+    if (!currentLocaleBlog) {
+      // If the blog doesn't exist in the current locale, add the English version
+      blogMap.set(fileName, {
+        ...enBlog,
+        path: enBlog.path?.replace('/en/', `/${locale.value}/`)
+      });
     }
-  }) || []
-})
+    // If the blog exists in both languages, we keep the current locale version (already in the map)
+  });
+
+  return Array.from(blogMap.values());
+});
 
 const searchData = computed(() => {
   return formattedData.value.filter((data) => {

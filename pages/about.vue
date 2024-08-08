@@ -26,7 +26,7 @@ defineOgImageComponent('About', {
         <div class="flex justify-between">
           <div>
             <h1 class="text-xl sm:text-4xl  pb-2 font-bold ">
-              {{ aboutPage.title }}
+              {{ $t('aboutPage.title') }}
             </h1>
 
             <div class="my-3 space-x-2 md:space-x-3 pb-10">
@@ -75,10 +75,10 @@ defineOgImageComponent('About', {
           </div>
         </div>
         <h3 class="text-base sm:text-3xl font-semibold pb-7 sm:pb-12">
-          {{ aboutPage.description }}
+          {{ $t('aboutPage.description') }}
         </h3>
 
-        <p>{{ aboutPage.aboutMe }}</p>
+        <p>{{ $t('aboutPage.aboutMe') }}</p>
       </div>
       <div class="hidden sm:block col-span-3">
         <NuxtImg

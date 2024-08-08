@@ -5,3 +5,4 @@
 node_modules
 # System files
 *.log
+.env
