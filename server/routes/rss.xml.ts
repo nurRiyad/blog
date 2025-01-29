@@ -1,11 +1,10 @@
 import { Feed } from 'feed'
-import { serverQueryContent } from '#content/server'
 
 const basePath = 'https://nurriyad.com'
 
 export default defineEventHandler(async (event) => {
   setHeader(event, 'content-type', 'text/xml')
-  const docs = await serverQueryContent(event).sort({ date: -1 }).find()
+  const docs = await queryCollection(event, 'blogs').order('date', 'DESC').all()
   const feed = new Feed({
     title: "Riyad's personal blog site",
     description: "Riyad's personal blog site",
@@ -25,11 +24,11 @@ export default defineEventHandler(async (event) => {
   docs.forEach((doc) => {
     feed.addItem({
       title: doc.title || '',
-      id: basePath + doc._path,
-      link: basePath + doc._path,
+      id: basePath + doc.path,
+      link: basePath + doc.path,
       description: doc.description,
       content: doc.description,
-      date: new Date(doc.date),
+      date: new Date(doc.date as string),
     })
   })
 

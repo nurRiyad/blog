@@ -10,10 +10,10 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/eslint',
     '@vueuse/nuxt',
-    '@nuxt/content',
-    'nuxt-og-image',
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
+    '@nuxt/content',
+    'nuxt-og-image',
     '@nuxtjs/color-mode',
     '@nuxtjs/tailwindcss',
     '@formkit/auto-animate',
@@ -31,12 +31,9 @@ export default defineNuxtConfig({
     layoutTransition: { name: 'layout', mode: 'out-in' },
   },
 
-  sitemap: {
-    strictNuxtContentPaths: true,
-  },
-
   site: {
     url: seoData.mySite,
+    name: seoData.title,
     identity: {
       type: 'Person',
     },
@@ -61,8 +58,12 @@ export default defineNuxtConfig({
   },
 
   content: {
-    highlight: {
-      theme: 'dracula',
+    build: {
+      markdown: {
+        highlight: {
+          theme: 'dracula',
+        },
+      },
     },
   },
 })

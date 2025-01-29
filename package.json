@@ -16,13 +16,13 @@
   },
   "devDependencies": {
     "@formkit/auto-animate": "^0.8.2",
-    "@nuxt/content": "^2.13.4",
+    "@nuxt/content": "^3.0.0",
     "@nuxt/eslint": "^0.6.1",
     "@nuxt/fonts": "^0.10.2",
     "@nuxt/image": "^1.8.0",
     "@nuxtjs/color-mode": "^3.3.2",
-    "@nuxtjs/robots": "^4.1.7",
-    "@nuxtjs/sitemap": "^5.3.2",
+    "@nuxtjs/robots": "^5.2.2",
+    "@nuxtjs/sitemap": "^7.2.3",
     "@nuxtjs/tailwindcss": "^6.11.4",
     "@stefanobartoletti/nuxt-social-share": "^0.6.1",
     "@tailwindcss/forms": "^0.5.7",
@@ -37,6 +37,9 @@
     "nuxt-og-image": "^3.0.0-rc.38",
     "prettier": "^3.3.3",
     "typescript": "^5.6.3"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-win32-x64-msvc": "4.30.0"
   },
   "packageManager": "pnpm@9.1.1+sha256.9551e803dcb7a1839fdf5416153a844060c7bce013218ce823410532504ac10b"
 }

@@ -2,7 +2,7 @@
 import { makeFirstCharUpper } from '@/utils/helper'
 
 const { data } = await useAsyncData('all-blog-post-for-category', () =>
-  queryContent('/blogs').sort({ _id: -1 }).find(),
+  queryCollection('blogs').order('id', 'DESC').all(),
 )
 
 const allTags = new Map()

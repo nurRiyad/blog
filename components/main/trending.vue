@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 // Get Last 6 Publish Post from the content/blog directory
 const { data } = await useAsyncData('trending-post', () =>
-  queryContent('/blogs').limit(3).sort({ _id: 1 }).find(),
+  queryCollection('blogs').limit(3).order('id', 'ASC').all(),
 )
 
 const formattedData = computed(() => {
   return data.value?.map((articles) => {
     return {
-      path: articles._path,
+      path: articles.path,
       title: articles.title || 'no-title available',
       description: articles.description || 'no-description available',
       image: articles.image || '/not-found.jpg',

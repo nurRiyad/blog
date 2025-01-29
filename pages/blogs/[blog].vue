@@ -5,7 +5,7 @@ import { navbarData, seoData } from '~/data'
 const { path } = useRoute()
 
 const { data: articles, error } = await useAsyncData(`blog-post-${path}`, () =>
-  queryContent(path).findOne(),
+  queryCollection('blogs').path(path).first(),
 )
 
 if (error.value) navigateTo('/404')

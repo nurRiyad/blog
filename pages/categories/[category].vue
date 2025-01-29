@@ -12,15 +12,13 @@ const category = computed(() => {
 })
 
 const { data } = await useAsyncData(`category-data-${category.value}`, () =>
-  queryContent('/blogs')
-    .where({ tags: { $contains: category.value } })
-    .find(),
+  queryCollection('blogs').where('tags', 'LIKE', `%${category.value}`).all(),
 )
 
 const formattedData = computed(() => {
   return data.value?.map((articles) => {
     return {
-      path: articles._path,
+      path: articles.path,
       title: articles.title || 'no-title available',
       description: articles.description || 'no-description available',
       image: articles.image || '/blogs-img/blog.jpg',
